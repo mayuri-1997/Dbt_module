@@ -1,0 +1,13 @@
+ASSIGNMENT NO.2
+
+1) Which field of the Customers table is the primary key?
+Ans :- customer number is primary key for customer table because The PRIMARY KEY constraint uniquely identifies each record in a table. Primary keys must contain UNIQUE values, and cannot contain NULL values and customer number is unique in customers table.
+
+2) What is the 4th column of the Customers table?
+Ans:- Rating is fourth column in customers table.
+
+3) What is another word for row? For column?
+Ans:- another names for row areTuple,entity,oportunity and for column attribute,method.
+
+4) Why isn’t it possible to see the first five rows of a table?
+Ans :- Because rows of table are not stored sequentially they are scatterd over database server HD.when you select a table,the order of rows in the ouput depends on row address.
