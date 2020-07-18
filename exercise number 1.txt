@@ -1,0 +1,119 @@
+EXERCISE NO.1
+1. Create the table SEMP with the following structure:-   
+
+create table SEMP
+(
+	EMPNO CHAR(4),
+	EMPNAME CHAR(20),
+	BASIC FLOAT(9,2),
+	DEPTNO CHAR(2),
+	DEPTHEAD CHAR(4)
+);
+
+2. Create the table SDEPT with the following structure:-   
+create table SDEPT
+(
+	DEPTNO CHAR(2),
+	DEPTNAME CHAR(15)
+);
+
+3. Insert into the SDEPT table the following values:-   
+insert into SDEPT(DEPTNO,DEPTNAME)
+values('10','Devolopment');
+insert into SDEPT(DEPTNO,DEPTNAME)
+values('20','Training');
+
+4. Insert into the SEMP table the following values:-   
+insert into semp(EMPNO,EMPNAME,BASIC,DEPTNO)
+values('0001','Sunil',6000,'10');
+insert into semp(EMPNO,EMPNAME,BASIC,DEPTNO)
+values('0002','Hiren',8000,'20');
+insert into semp(EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
+values('0001','Ali',4000,'10','0001');
+insert into semp(EMPNO,EMPNAME,BASIC,DEPTHEAD)
+values('0004','George',6000,'0002');
+
+
+
+
+create table S
+(
+	`S#` VARCHAR(20),
+	SNAME VARCHAR(20),
+	STATUS VARCHAR(10),
+	CITY VARCHAR (15)
+);
+
+create table P
+(
+	`P#` VARCHAR(20),
+	PNAME VARCHAR(20),
+	COLOR CHAR(6),
+	WEIGHT FLOAT(8,2),
+	 CITY varchar(8)
+);
+
+create table J
+(
+	`J#` VARCHAR(20),
+	JNAME VARCHAR(20),
+	 CITY varchar(8)
+);
+
+
+create table SPJ
+(
+	`S#` VARCHAR(20),	
+	`P#` VARCHAR(20),
+	`J#` VARCHAR(20),
+	Qty varchar(10)
+);
+
+INSERT VALUES IN S TABLE:
+insert into S(`S#`,SNAME,STATUS,CITY)
+values('S1','John','10','Mumbai');
+insert into S(`S#`,SNAME,STATUS,CITY)
+values('S2','ALI','20','Pune');
+insert into S(`S#`,SNAME,STATUS,CITY)
+values('S3','Geeta','30','Banglore');
+insert into S(`S#`,SNAME,STATUS,CITY)
+values('S4','Mona','40','Phaltan');
+insert into S(`S#`,SNAME,STATUS,CITY)
+values('S5','Pooja','50','Alibag');
+
+
+INSERT VALUES IN P TABLE:
+insert into p values ('p1', 'abc', 'blue', 120, 'london');
+insert into p values ('p2', 'xyz', 'red', 540, 'paris');
+insert into p values ('p3', 'pqr', 'black', 620, 'paris');
+insert into p values ('p4', 'mno', 'white', 740, 'mumbai');
+
+INSERT VALUES IN J TABLE:
+insert into j values ('j1', 'project1', 'london');
+insert into j values ('j2', 'project12', 'athens');
+insert into j values ('j3', 'project3', 'athens');
+insert into j values ('j4', 'project4', 'mumbai');
+
+INSERT VALUES IN SPJ TABLES:
+insert into spj values('s1', 'p1', 'j1', '40');
+insert into spj values('s2', 'p2', 'j2', '50');
+insert into spj values('s3', 'p3', 'j3', '60');
+
+
+QUE 5. Display all the data from the S table.    
+->  select * from s;
+
+QUE 6. Display only the S# and SNAME fields from the S table.
+->   select `s#`, sname from s;     
+
+QUE 7. Display the PNAME and COLOR from the P table for the CITY=”London”.     
+->  select pname, color from p where city='london';
+ 
+QUE 8. Display all the Suppliers from London.      
+->  select * from s where city='london';
+
+QUE 9. Display all the Suppliers from Paris or Athens.    
+->  select * from s where city in ('paris', 'athens');
+
+QUE 10. Display all the Projects in Athens.
+->  select * from j where city='athens';
