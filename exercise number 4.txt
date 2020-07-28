@@ -1,0 +1,78 @@
+SQL Exercise 4   
+1. Display the minimum Status in the Supplier table.   
+Query:select min(status) from s;
++-------------+
+| min(status) |
++-------------+
+| 10          |
++-------------+
+
+ 2. Display the maximum Weight in the Parts table. 
+Query: select max(weight) from p;
++-------------+
+| max(weight) |
++-------------+
+|      740.00 |
++-------------+
+
+ 3. Display the average Weight of the Parts.
+Query:select avg(weight) from p;
++-------------+
+| avg(weight) |
++-------------+
+|  505.000000 |
++-------------+
+
+ 4. Display the total Quantity sold for part ‘P1’.   
+Query: select count(`P#`) from p where `P#`='p1';
++-------------+
+| count(`P#`) |
++-------------+
+|           1 |
++-------------+
+  5. Display the total Quantity sold for each part. 
+Query:  select sum(qty) from spj;
++----------+
+| sum(qty) |
++----------+
+|      150 |
++----------+
+
+  6. Display the average Quantity sold for each part.
+Query: select avg(qty) from spj;
++----------+
+| avg(qty) |
++----------+
+|       50 |
++----------+
+  7. Display the maximum Quantity sold for each part, provided the maximum Quantity is greater than 800.      
+  
+  
+ 8. Display the Status and the count of Suppliers with that Status.
+Query: select status,count(`s#`)from s order by status;
++--------+-------------+
+| status | count(`s#`) |
++--------+-------------+
+| 10     |           6 |
++--------+-------------+
+
+ 9. Display the count of Projects going on in different cities.  
+Query:select city,count(`p#`) from p;
++--------+-------------+
+| city   | count(`p#`) |
++--------+-------------+
+| london |           4 |
++--------+-------------+
+
+ 10. What is the difference between COUNT(Status) and COUNT(*) ? 
+Ans:COUNT(*) counts the rows in your table.
+
+COUNT(Status) counts the entries in a column - ignoring null values.
+
+ 11. Display the Status and the Count of Suppliers with that Status in the following format as shown below:-        Status   Count     Ten   1     Twenty   2     Thirty   3   
+ Query:select status,count(`s#`) from s order by status;
++--------+-------------+
+| status | count(`s#`) |
++--------+-------------+
+| 10     |           6 |
++--------+-------------+
