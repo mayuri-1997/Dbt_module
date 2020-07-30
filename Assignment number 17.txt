@@ -1,0 +1,37 @@
+Assignment – 17 Constraining the Values of your data. 
+ 
+1) Create the Orders table so that all onum values as well as all combinations of cnum and snum are different from one another, and so that NULL values are excluded from the date field. 
+Query:create table orders1
+(
+	onum int(4),
+	cnum int(4),
+	snum int(4),
+	odate date NOT NULL,
+	primary key(onum,cnum,snum)
+);
+ 
+2) Create the Salespeople table so that the default commission is 10% with no NULLS permitted, snum is the primary key, and all names fall alphabetically between A and M, inclusive (assume all names will be uppercase). 
+Query:create table salespeople1
+    -> (
+    -> snum int(4) PRIMARY KEY,
+    -> sname varchar(20) check(substr(upper(sname),1,1) BETWEEN 'A' AND 'B'),
+    -> city varchar(20),
+    -> comm int(15) DEFAULT 10 NOT NULL
+    -> );
+Query OK, 0 rows affected (0.28 sec)
+
+mysql> DESC SALESPEOPLE1;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| snum  | int(4)      | NO   | PRI | NULL    |       |
+| sname | varchar(20) | YES  |     | NULL    |       |
+| city  | varchar(20) | YES  |     | NULL    |       |
+| comm  | int(15)     | NO   |     | 10      |       |
++-------+-------------+------+-----+---------+-------+
+ 
+3) Create the Orders table, making sure that the onum is greater than the cnum, and the cnum is greater that the snum. Allow no NULLS in any of these three fields. 
+ANS:CREATE TABLE orders12 ( onum number(4), amt number(7,2), odate date, cnum number(4), snum number(4), CONSTRAINT on_cn_sn check(cnum>cnum
+                                                                                                                               AND cnum>snum) );
+
+

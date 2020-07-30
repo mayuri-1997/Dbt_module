@@ -1,0 +1,62 @@
+Assignment – 19 Views. 
+ 
+1) Create a view that shows all of the customers who have the highest ratings. 
+Query: create view High_rating as
+    -> select * from customers where Rating=
+    -> (select max(Rating) from customers);
+Query OK, 0 rows affected (0.16 sec)
+
+mysql>  select * from High_rating;
++------+--------+---------+--------+------+
+| Cnum | Cname  | City    | Rating | Snum |
++------+--------+---------+--------+------+
+| 2012 | rakesh | bikaner |    500 | 1005 |
++------+--------+---------+--------+------+
+
+---------------------------------------------------------------------------------------------------------
+ 
+2) Create a view that shows the number of salespeople in each city. 
+Query:create view N0_SALESPEOPLE as select city,count(city) "Number of Salespeople" from salespeople group by city;
+select * from N0_SALESPEOPLE;
++-----------+-----------------------+
+| city      | Number of Salespeople |
++-----------+-----------------------+
+| Barcelona |                     1 |
+| London    |                     2 |
+| New York  |                     1 |
+| San jose  |                     2 |
++-----------+-----------------------+
+
+---------------------------------------------------------------------------------------------------------------
+ 
+3) Create a view that shows the average and total orders for each salesperson after his or her name. Assume all names are unique. 
+Query:create view AVG_TOTAL as select sname,avg(onum),sum(onum) from salespeople JOIN orders using (snum) group by sname;
+
+
+mysql>  select * from AVG_TOTAL;
++---------+-----------+-----------+
+| sname   | avg(onum) | sum(onum) |
++---------+-----------+-----------+
+| Axelrod | 3009.0000 |      3009 |
+| Motika  | 3002.0000 |      3002 |
+| Peel    | 3003.0000 |      3003 |
+| Rifkin  | 3003.5000 |      6007 |
+| Serres  | 3007.3333 |      9022 |
++---------+-----------+-----------+
+ 
+---------------------------------------------------------------------------------------------------------------
+4) Create a view that shows each salesperson with multiple customers. 
+Query: create view MUL_CUST as select sname,cname from salespeople  join customers using(snum);
+
+mysql>  select * from MUL_CUST;
++---------+----------+
+| sname   | cname    |
++---------+----------+
+| Peel    | Hoffman  |
+| Axelrod | Giovanni |
+| Serres  | Liu      |
+| Serres  | Grass    |
+| Peel    | Clemens  |
+| Rifkin  | Cisneros |
+| Serres  | Pereira  |
++---------+----------+
