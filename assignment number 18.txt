@@ -15,3 +15,15 @@ ALTER TABLE cityorders ADD FOREIGN key(onum) REFERENCES orders(onum);
 
  
 2) Redefine the Orders table as follows:- add a new column called prev, which will identify, for each order, the onum of the previous order for that current customer. Implement this with a foreign key referring to the Orders table itself. The foreign key should refer as well to the cnum of the customer, providing a definite enforced link between the current order and the one referenced. 
+ANS:alter table customers add constraint pk_cust primary key(cnum);
+	
+alter table orders add constraint foreign key(cnum) references customers(cnum);
+
+
+       alter table orders add constraint pk_onum primary key(onum);
+
+
+	
+       alter table orders add column prev int;
+alter table orders 
+       add constraint foreign key(prev) references orders(onum);
